@@ -3,6 +3,11 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
+    path: '',
+    redirectTo: 'arquitectura-de-software',
+    pathMatch: 'full'
+  },
+  {
     path: 'users',
     loadChildren: () => import('./modules/users/users-module').then(m => m.UsersModule)
   },
@@ -23,12 +28,9 @@ const routes: Routes = [
     loadChildren: () => import('./modules/sistema-de-diseno/sistema-de-diseno-module').then(m => m.SistemaDeDisenoModule)
   },
   {
-    path: '**',
-    redirectTo: 'users'
-  },
-  {
     path: 'arquitectura',
-    loadChildren: () => import('./modules/users/users-module').then(m => m.UsersModule)
+    redirectTo: 'arquitectura-de-software',
+    pathMatch: 'full'
   },
   {
     path: 'principios',
@@ -37,6 +39,10 @@ const routes: Routes = [
   {
     path: 'diseno',
     loadChildren: () => import('./modules/users/users-module').then(m => m.UsersModule)
+  },
+  {
+    path: '**',
+    redirectTo: 'arquitectura-de-software'
   }
 ];
 
